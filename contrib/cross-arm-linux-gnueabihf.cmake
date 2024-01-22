@@ -5,15 +5,16 @@
 #  cd build/
 #  cmake .. -DCMAKE_TOOLCHAIN_FILE=../cross-arm-linux-gnueabihf.cmake
 #
-
-set(CROSS_PATH /opt/gcc-linaro-arm-linux-gnueabihf-4.7-2013.02-01-20130221_linux)
+#/opt/exorintos/1.5.3/sysroots/cortexa8hf-vfp-neon-poky-linux-gnueabi/lib/
+#/opt/exorintos/1.5.3/sysroots/i686-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi
+set(CROSS_PATH /opt/exorintos/1.5.3/sysroots)
 
 # Target operating system name.
 set(CMAKE_SYSTEM_NAME Linux)
 
 # Name of C compiler.
-set(CMAKE_C_COMPILER "${CROSS_PATH}/bin/arm-linux-gnueabihf-gcc")
-set(CMAKE_CXX_COMPILER "${CROSS_PATH}/bin/arm-linux-gnueabihf-g++")
+set(CMAKE_C_COMPILER "${CROSS_PATH}/i686-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc")
+set(CMAKE_CXX_COMPILER "${CROSS_PATH}/i686-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++")
 
 #
 # Different build system distros set release optimization level to different
@@ -32,7 +33,8 @@ if (CMAKE_BUILD_TYPE MATCHES RELEASE OR CMAKE_BUILD_TYPE MATCHES Release OR CMAK
 endif()
 
 # Where to look for the target environment. (More paths can be added here)
-set(CMAKE_FIND_ROOT_PATH "${CROSS_PATH}")
+set(CMAKE_PREFIX_PATH "${CROSS_PATH}/cortexa8hf-vfp-neon-poky-linux-gnueabi/")
+set(CMAKE_LIBRARY_PATH "${CROSS_PATH}/cortexa8hf-vfp-neon-poky-linux-gnueabi/lib/")
 
 # Adjust the default behavior of the FIND_XXX() commands:
 # search programs in the host environment only.
@@ -42,3 +44,5 @@ set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
+#build:
+#cmake . -DCMAKE_TOOLCHAIN_FILE=./contrib/cross-arm-linux-gnueabihf.cmake -DLWS_WITH_SSL=OFF --fresh --debug-trycompile
