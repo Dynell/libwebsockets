@@ -48,4 +48,4 @@ set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
 #build:
-# cmake . -DCMAKE_TOOLCHAIN_FILE=./contrib/cross-arm-linux-aarch64.cmake -DLWS_WITH_SSL=OFF --fresh --debug-trycompile
+# cmake . -DCMAKE_TOOLCHAIN_FILE=./contrib/cross-arm-linux-aarch64.cmake -DLWS_WITH_SSL=OFF -DLWS_WITH_TLS=OFF -DLWS_WITH_EXTERNAL_POLL=ON --fresh --debug-trycompile
