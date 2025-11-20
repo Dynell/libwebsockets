@@ -52,4 +52,4 @@ set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
 set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
 
 #build:
-#cmake . -DCMAKE_TOOLCHAIN_FILE=./contrib/cross-arm-linux-gnueabihf.cmake -DLWS_WITH_SSL=OFF -DLWS_WITH_TLS=OFF -DLWS_WITH_EXTERNAL_POLL=ON --fresh --debug-trycompile
+#cmake . -DCMAKE_TOOLCHAIN_FILE=./contrib/cross-arm-linux-gnueabihf.cmake --fresh --debug-trycompile
